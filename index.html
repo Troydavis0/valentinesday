@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentines...</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="message-container">
+        <div class="message-text">Hi baby!!
+
+Write message here
+
+        </div>
+    </div>
+    
+    <div class="spacer"></div>
+    
+    <div class="container">
+        <div class="gif-container">
+            <img src="snoopy.gif" alt="Snoopy" class="snoopy-gif">
+        </div>
+        <h1>Will You Be My Valentine?</h1>
+        <div class="buttons">
+            <button id="yesBtn" onclick="respond(true)">Yes!</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="respond(false)">No</button>
+        </div>
+        <div id="response"></div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const button = document.getElementById('noBtn');
+            const container = document.querySelector('.container');
+            const maxX = container.clientWidth - button.clientWidth;
+            const maxY = container.clientHeight - button.clientHeight;
+            
+            button.style.position = 'absolute';
+            button.style.left = Math.random() * maxX + 'px';
+            button.style.top = Math.random() * maxY + 'px';
+        }
+
+        function respond(answer) {
+            const response = document.getElementById('response');
+            response.style.opacity = '1';
+            
+            if (answer) {
+                response.innerHTML = "YAYYYY I LOVE YOU SOO SOOO MUCH BABY!";
+                document.getElementById('noBtn').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
